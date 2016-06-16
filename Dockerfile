@@ -11,8 +11,7 @@ RUN powershell -command \
   Expand-Archive -Path C:\temp\latest.zip -DestinationPath C:\inetpub\wwwroot; \
   Remove-Item -Path C:\temp\latest.zip; \
   wget -Uri https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe -OutFile C:\Temp\vcredist_x64.exe; \
-  C:\Temp\vcredist_x64.exe /quiet /norestart; \
-  Remove-Item -Path C:\Temp\vcredist_x64.exe
+  C:\Temp\vcredist_x64.exe /quiet /norestart
 CMD C:\Windows\System32\InetSrv\AppCmd.exe set config /section:system.webServer/fastCGI /+[fullPath='c:\php\php-cgi.exe']
 CMD C:\Windows\System32\InetSrv\AppCmd.exe set config /section:system.webServer/handlers /+[name='PHP_via_FastCGI',path='*.php',verb='*',modules='FastCgiModule',scriptProcessor='c:\php\php-cgi.exe',resourceType='Either']
 CMD C:\Windows\System32\InetSrv\AppCmd.exe set config -section:system.webServer/defaultDocument /+"files.[value='index.php']" /commit:apphost
