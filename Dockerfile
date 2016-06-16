@@ -3,7 +3,7 @@ MAINTAINER florent.appointaire@gmail.com
 RUN powershell -command \
   Install-WindowsFeature Web-CGI; \
   New-Item -Path C:\Temp -ItemType Directory; \
-  wget -Uri http://windows.php.net/downloads/releases/php-7.0.7-nts-Win32-VC14-x64.zip -OutFile C:\temp\php.zip; \
+  wget -Uri http://windows.php.net/downloads/releases/php-5.6.22-nts-Win32-VC11-x64.zip -OutFile C:\temp\php.zip; \
   Expand-Archive -Path C:\temp\php.zip -DestinationPath C:\php; \
   wget -Uri https://raw.githubusercontent.com/Flodu31/Nginx_Wordpress_WindowsServer/master/php.ini -OutFile C:\php\php.ini; \
   Remove-Item -Path C:\temp\php.zip; \
